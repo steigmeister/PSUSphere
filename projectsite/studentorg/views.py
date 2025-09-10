@@ -5,6 +5,12 @@ from studentorg.models import Organization
 from studentorg.forms import OrganizationForm
 from django.urls import reverse_lazy
 
+class OrganizationUpdateView(UpdateView):
+    model = Organization
+    form_class = OrganizationForm
+    template_name = 'org_form.html'
+    success_url = reverse_lazy('organization-list')
+
 class HomePageView(ListView):
     model = Organization
     context_object_name = 'home'
@@ -22,9 +28,5 @@ class OrganizationCreateView(CreateView):
     template_name = 'org_form.html'
     success_url = reverse_lazy('organization-list')
 
-class OrganizationUpdateView(UpdateView):
-    model = Organization
-    form_class = OrganizationForm
-    template_name = 'org_form.html'
-    success_url = reverse_lazy('organization-list')
+
 
