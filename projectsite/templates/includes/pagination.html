@@ -2,6 +2,7 @@
   <div class="card-footer px-0 border-0 d-flex flex-column flex-lg-row align-items-center justify-content-between mt-3">
     <nav aria-label="Topics pagination" class="mb-4">
       <ul class="pagination">
+        {# First Page #}
         {% if page_obj.number > 1 %}
           <li class="page-item">
             <a class="page-link" href="?page=1">First</a>
@@ -12,6 +13,7 @@
           </li>
         {% endif %}
 
+        {# Previous Page #}
         {% if page_obj.has_previous %}
           <li class="page-item">
             <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Prev</a>
@@ -22,9 +24,10 @@
           </li>
         {% endif %}
 
+        {# Page Numbers (Window Around Current) #}
         {% for page_num in paginator.page_range %}
           {% if page_obj.number == page_num %}
-            <li class="page-item active">
+            <li class="page-item active" aria-current="page">
               <span class="page-link">
                 {{ page_num }}
                 <span class="sr-only">(current)</span>
@@ -37,6 +40,7 @@
           {% endif %}
         {% endfor %}
 
+        {# Next Page #}
         {% if page_obj.has_next %}
           <li class="page-item">
             <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
@@ -47,6 +51,7 @@
           </li>
         {% endif %}
 
+        {# Last Page #}
         {% if page_obj.number != paginator.num_pages %}
           <li class="page-item">
             <a class="page-link" href="?page={{ paginator.num_pages }}">Last</a>
