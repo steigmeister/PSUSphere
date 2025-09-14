@@ -49,7 +49,12 @@
                                     <td>{{ object.organization }}</td>
                                     <td>{{ object.date_joined }}</td>
 <!-- UpdateView Starts here -->
-                                     <td><a href="orgmember_list/{{object.id}}">Edit</a> </td>
+                                     <td>
+                                        <a href="orgmember_list/{{object.id}}">Edit</a>
+                                        <!-- DeleteView Starts here -->
+                                        <a href="orgmember_list/{{object.id}}/delete" class="text-danger">Delete</a>
+                                        <!-- DeleteView Ends here -->
+                                    </td>
                                      {% empty %}
                                      <tr>
                                         <td colspan="4" style="text-align: center">
