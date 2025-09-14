@@ -9,24 +9,24 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="card-title">List of Organizations</div>
-                        <div class="card-category">Page Subtitle</div>
+                        <div class="card-title">List of Organization Members</div>
+                        <div class="card-category">Organization Members</div>
                     </div>
                     <div class="card-body">
                         <table class="table table-striped mt-3">
                             <thead>
                                 <tr>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">College</th>
-                                    <th scope="col">Description</th>
+                                    <th scope="col">Student Name</th>
+                                    <th scope="col">Organization</th>
+                                    <th scope="col">Date Joined</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {% for object in object_list %}
                                 <tr>
-                                    <td>{{ object.name }}</td>
-                                    <td>{{ object.college }}</td>
-                                    <td>{{ object.description }}</td>
+                                    <td>{{ object.student }}</td>
+                                    <td>{{ object.organization }}</td>
+                                    <td>{{ object.date_joined }}</td>
                                 </tr>
                                 {% endfor %}
                             </tbody>
