@@ -46,6 +46,15 @@
                                 <tr>
                                     <td>{{ object.prog_name}}</td>
                                     <td>{{ object.college}}</td>
+<!-- UpdateView Starts here -->
+                                     <td><a href="program_list/{{object.id}}">Edit</a> </td>
+                                     {% empty %}
+                                     <tr>
+                                        <td colspan="4" style="text-align: center">
+                                            <p class="text-sm font-weight-bold mb-0">No Records Found</p>
+                                        </td>
+                                     </tr>
+<!-- UpdateView Ends here -->
                                 </tr>
                                 {% endfor %}
                             </tbody>

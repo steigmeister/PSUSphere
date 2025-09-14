@@ -48,6 +48,15 @@
                                     <td>{{ object.student }}</td>
                                     <td>{{ object.organization }}</td>
                                     <td>{{ object.date_joined }}</td>
+<!-- UpdateView Starts here -->
+                                     <td><a href="orgmember_list/{{object.id}}">Edit</a> </td>
+                                     {% empty %}
+                                     <tr>
+                                        <td colspan="4" style="text-align: center">
+                                            <p class="text-sm font-weight-bold mb-0">No Records Found</p>
+                                        </td>
+                                     </tr>
+<!-- UpdateView Ends here -->
                                 </tr>
                                 {% endfor %}
                             </tbody>
