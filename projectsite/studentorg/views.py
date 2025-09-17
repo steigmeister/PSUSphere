@@ -55,6 +55,19 @@ class OrgMemberList(ListView):
     context_object_name = 'orgmember'
     template_name = 'orgmember_list.html'
     paginate_by = 5
+    ordering = ["date_joined", "student", "organization"]
+
+    def get_queryset (self):
+        qs = super().get_queryset()
+        query = self.request.GET.get('q')
+
+        if query:
+            qs = qs.filter(
+                Q(student__icontains=query) |
+                Q(organization__icontains=query) |
+                Q(date_joined__icontains=query)
+            )
+        return qs
 
 class StudentList(ListView):
     model = Student
