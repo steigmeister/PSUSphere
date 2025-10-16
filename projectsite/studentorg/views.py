@@ -6,6 +6,7 @@ from studentorg.forms import OrganizationForm, OrgMemberForm, StudentForm, Colle
 from django.urls import reverse_lazy
 from django.db.models import Q
 from django.utils import timezone
+from django.http import HttpResponse
 
 ## ListViews Here
 class HomePageView(ListView):

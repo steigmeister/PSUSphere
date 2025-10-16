@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 ## List Views
 from studentorg.views import (
     HomePageView,
@@ -36,7 +36,8 @@ from studentorg.views import (
 from studentorg import views
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
+     path('admin/', admin.site.urls),
+    path('accounts/', include('allauth.urls')),
 
     ## ListViews
     path('', views.HomePageView.as_view(), name='home'),
